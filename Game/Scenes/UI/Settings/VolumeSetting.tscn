@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b2kws08oxgyjx"]
+
+[ext_resource type="Script" uid="uid://bfy4w01mkqohp" path="res://Game/Scripts/Settings/VolumeSetting.gd" id="1_nyqwq"]
+
+[node name="Volume" type="HSlider" unique_id=2073610156]
+process_mode = 3
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("1_nyqwq")

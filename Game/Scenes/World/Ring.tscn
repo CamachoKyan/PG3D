@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b6ky3go377qw7"]
+
+[ext_resource type="Script" uid="uid://dj37ghbsbtdry" path="res://Game/Scripts/Ring/Ring.gd" id="1_tnw25"]
+
+[node name="Ring" type="Node3D" unique_id=1977060948]
+script = ExtResource("1_tnw25")

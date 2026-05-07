@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cvsu8l5a5arjj"]
+
+[ext_resource type="Shader" uid="uid://cyfvov08mihol" path="res://Game/Scenes/World/sky.tres" id="1_kjs42"]
+
+[sub_resource type="Gradient" id="Gradient_e4h33"]
+colors = PackedColorArray(0.03513718, 0.44353268, 0.71597385, 1, 0.8102823, 0.9079755, 0.90936714, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6ls13"]
+noise_type = 3
+frequency = 0.0189
+domain_warp_enabled = true
+metadata/_preview_in_3d_space_ = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1uamo"]
+noise = SubResource("FastNoiseLite_6ls13")
+color_ramp = SubResource("Gradient_e4h33")
+seamless = true
+seamless_blend_skirt = 0.389
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y836m"]
+shader = ExtResource("1_kjs42")
+shader_parameter/text = SubResource("NoiseTexture2D_1uamo")
+
+[sub_resource type="Sky" id="Sky_u4rhb"]
+sky_material = SubResource("ShaderMaterial_y836m")
+
+[sub_resource type="Environment" id="Environment_0ifx0"]
+background_mode = 2
+sky = SubResource("Sky_u4rhb")
+
+[node name="Root" type="Node3D" unique_id=1491300415]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=396724273]
+environment = SubResource("Environment_0ifx0")

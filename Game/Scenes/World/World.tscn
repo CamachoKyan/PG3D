@@ -1,0 +1,173 @@
+[gd_scene format=3 uid="uid://bkwyto81gxne0"]
+
+[ext_resource type="PackedScene" uid="uid://c0etqnj18lw6s" path="res://Game/Scenes/World/Tile.tscn" id="1_05kjn"]
+[ext_resource type="Script" uid="uid://dpgr554ysm152" path="res://Game/Scripts/RingSpawner/RingSpawner.gd" id="1_62ldo"]
+[ext_resource type="Script" uid="uid://jooydscd3sq8" path="res://Game/Scripts/Player/Player.gd" id="3_a1f1x"]
+[ext_resource type="Script" uid="uid://cnkcvoikk51d0" path="res://Game/Scripts/UI/UI.gd" id="4_a4i1s"]
+[ext_resource type="FontFile" uid="uid://blpbjyc4ndbsx" path="res://Game/Assets/Font/Nightmare Codehack.otf" id="5_hgroo"]
+[ext_resource type="PackedScene" uid="uid://b0ry5n5omudq4" path="res://Game/Scenes/UI/GameOverMenu/GameOverMenu.tscn" id="5_hlc17"]
+[ext_resource type="Shader" uid="uid://cyfvov08mihol" path="res://Game/Scenes/World/sky.tres" id="9_aaqah"]
+[ext_resource type="PackedScene" uid="uid://bbv6xnrhuuw4t" path="res://Game/Scenes/UI/Menu/PauseMenu/PauseMenu.tscn" id="9_hgroo"]
+
+[sub_resource type="Gradient" id="Gradient_7yp87"]
+colors = PackedColorArray(0.03513718, 0.44353268, 0.71597385, 1, 0.8102823, 0.9079755, 0.90936714, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qrsg0"]
+noise_type = 3
+frequency = 0.0189
+domain_warp_enabled = true
+metadata/_preview_in_3d_space_ = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1uamo"]
+noise = SubResource("FastNoiseLite_qrsg0")
+color_ramp = SubResource("Gradient_7yp87")
+seamless = true
+seamless_blend_skirt = 0.389
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vlq5u"]
+shader = ExtResource("9_aaqah")
+shader_parameter/text = SubResource("NoiseTexture2D_1uamo")
+
+[sub_resource type="Sky" id="Sky_u4rhb"]
+sky_material = SubResource("ShaderMaterial_vlq5u")
+
+[sub_resource type="Environment" id="Environment_jxhki"]
+background_mode = 2
+sky = SubResource("Sky_u4rhb")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 2.5
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_a1f1x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a1f1x"]
+albedo_color = Color(0.45668828, 1.2032687e-07, 0.21726236, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_a4i1s"]
+material = SubResource("StandardMaterial3D_a1f1x")
+size = Vector2(48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qmw0i"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_a1f1x"]
+height = 0.1
+
+[node name="World" type="Node" unique_id=1725567916]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=964062786]
+environment = SubResource("Environment_jxhki")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=1872504087]
+transform = Transform3D(1, 0, 0, 0, -0.4999999, 0.86602545, 0, -0.86602545, -0.4999999, 0, 20.186619, 17.270218)
+
+[node name="Spawn" type="Node3D" parent="." unique_id=822330403]
+
+[node name="Tile" parent="Spawn" unique_id=267361305 instance=ExtResource("1_05kjn")]
+
+[node name="RingSpawner" type="Node3D" parent="." unique_id=316907675]
+process_mode = 1
+script = ExtResource("1_62ldo")
+
+[node name="GameOver" type="Area3D" parent="." unique_id=1576949736]
+transform = Transform3D(3.645, 0, 0, 0, 3.645, 0, 0, 0, 3.645, 0, -4, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GameOver" unique_id=377192557]
+shape = SubResource("WorldBoundaryShape3D_a1f1x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GameOver/CollisionShape3D" unique_id=1019232453]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0.555, 0)
+visible = false
+mesh = SubResource("PlaneMesh_a4i1s")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=708006433 node_paths=PackedStringArray("RLabel", "CoinsLabel", "Chrono", "TheTimer")]
+script = ExtResource("4_a4i1s")
+RLabel = NodePath("RichTextLabel")
+CoinsLabel = NodePath("RichTextLabel2")
+Chrono = NodePath("RichTextLabel3")
+TheTimer = NodePath("Timer")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI" unique_id=1022439665]
+offset_right = 565.0
+offset_bottom = 195.0
+size_flags_horizontal = 2
+size_flags_vertical = 6
+theme_override_fonts/normal_font = ExtResource("5_hgroo")
+theme_override_font_sizes/normal_font_size = 48
+theme_override_font_sizes/bold_font_size = 48
+theme_override_font_sizes/bold_italics_font_size = 48
+theme_override_font_sizes/italics_font_size = 48
+theme_override_font_sizes/mono_font_size = 48
+text = "Score: "
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="UI" unique_id=1761474735]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -271.0
+offset_right = 565.0
+offset_bottom = -76.0
+grow_vertical = 2
+size_flags_horizontal = 10
+size_flags_vertical = 6
+theme_override_fonts/normal_font = ExtResource("5_hgroo")
+theme_override_font_sizes/normal_font_size = 48
+theme_override_font_sizes/bold_font_size = 48
+theme_override_font_sizes/bold_italics_font_size = 48
+theme_override_font_sizes/italics_font_size = 48
+theme_override_font_sizes/mono_font_size = 48
+text = "Coins:  "
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="UI" unique_id=1399706184]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = -226.0
+offset_right = 566.0
+offset_bottom = -31.0
+grow_vertical = 2
+size_flags_horizontal = 10
+size_flags_vertical = 6
+theme_override_fonts/normal_font = ExtResource("5_hgroo")
+theme_override_font_sizes/normal_font_size = 48
+theme_override_font_sizes/bold_font_size = 48
+theme_override_font_sizes/bold_italics_font_size = 48
+theme_override_font_sizes/italics_font_size = 48
+theme_override_font_sizes/mono_font_size = 48
+text = "Tiempo: 00:00"
+
+[node name="Timer" type="Timer" parent="UI" unique_id=132385786]
+
+[node name="GameOverMenu" parent="." unique_id=2063413737 instance=ExtResource("5_hlc17")]
+
+[node name="PauseMenu" parent="." unique_id=637549793 instance=ExtResource("9_hgroo")]
+process_mode = 3
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1541555493 node_paths=PackedStringArray("Detector")]
+process_mode = 1
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.25, 0)
+script = ExtResource("3_a1f1x")
+Detector = NodePath("FloorDetector/CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1469422360]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_qmw0i")
+debug_color = Color(0, 0, 0, 1)
+
+[node name="FloorDetector" type="Area3D" parent="Player" unique_id=1217527619]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/FloorDetector" unique_id=722799232]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1155225, 0)
+shape = SubResource("CylinderShape3D_a1f1x")
+debug_color = Color(0.9691974, 0, 0.46595612, 0.9990001)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=971911279]
+transform = Transform3D(1, 0, 0, 0, 0.9063078, 0.4226183, 0, -0.4226183, 0.9063078, 0, 7, 20)
+fov = 70.0
+size = 33.8
+
+[connection signal="body_entered" from="GameOver" to="Player" method="GameOverDetector"]
+[connection signal="timeout" from="UI/Timer" to="UI" method="Chronos"]
+[connection signal="body_entered" from="Player/FloorDetector" to="Player" method="FloorDetectorEntered"]
+[connection signal="body_exited" from="Player/FloorDetector" to="Player" method="FloorDetectorExited"]

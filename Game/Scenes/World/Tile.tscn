@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c0etqnj18lw6s"]
+
+[ext_resource type="Script" uid="uid://d2anfk24862r5" path="res://Game/Scripts/Tiles/Tile.gd" id="1_udc7a"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4qd6a"]
+size = Vector3(1.8, 0.5, 1.8)
+
+[node name="Tile" type="CharacterBody3D" unique_id=1011954502 node_paths=PackedStringArray("Collision")]
+script = ExtResource("1_udc7a")
+Collision = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=73575987]
+transform = Transform3D(0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.7071067, 0, 0, 0)
+shape = SubResource("BoxShape3D_4qd6a")

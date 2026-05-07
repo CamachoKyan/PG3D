@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://rnppu23mpubq"]
+
+[ext_resource type="Script" uid="uid://dtq80lt20hdcr" path="res://Game/Scripts/Store/BuyButton.gd" id="1_8iuvp"]
+[ext_resource type="FontFile" uid="uid://blpbjyc4ndbsx" path="res://Game/Assets/Font/Nightmare Codehack.otf" id="1_urp7y"]
+
+[node name="BuyButton" type="Button" unique_id=1892856924]
+offset_left = 88.0
+offset_top = 180.5
+offset_right = 188.0
+offset_bottom = 211.5
+theme_override_colors/font_color = Color(0.07498453, 0.7185521, 0, 1)
+theme_override_fonts/font = ExtResource("1_urp7y")
+text = "Comprar"
+script = ExtResource("1_8iuvp")
+
+[connection signal="pressed" from="." to="." method="Pressed"]

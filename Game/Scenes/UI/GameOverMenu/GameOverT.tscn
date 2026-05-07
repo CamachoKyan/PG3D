@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://d0vxe3bhi0wkc"]
+
+[node name="Control" type="Control" unique_id=1381995834]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=231493029]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -313.5
+offset_right = 313.5
+offset_bottom = 220.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 80
+text = "Te caiste we"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1961418997]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -209.0
+offset_top = -134.0
+offset_right = 209.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1359474074]
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=342603390]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 48
+text = "Puntuación:"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1207089155]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 48
+text = "Record: "
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=112097286]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Volver a jugar"
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1735415141]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Menu"

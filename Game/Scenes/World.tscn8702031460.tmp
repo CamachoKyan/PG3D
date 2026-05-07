@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bkwyto81gxne0"]
+
+[ext_resource type="PackedScene" uid="uid://c0etqnj18lw6s" path="res://Game/Scenes/Tile.tscn" id="1_05kjn"]
+[ext_resource type="Script" uid="uid://23kgnuke26y" path="res://Game/Scripts/RingSpawner/RingSpawner.gd" id="1_62ldo"]
+[ext_resource type="Script" uid="uid://dj37ghbsbtdry" path="res://Game/Scripts/Ring/Ring.gd" id="3_a1f1x"]
+
+[node name="World" type="Node" unique_id=1725567916]
+
+[node name="Rin" type="Node3D" parent="." unique_id=822330403 node_paths=PackedStringArray("Pointer")]
+script = ExtResource("1_62ldo")
+Pointer = NodePath("Pointer")
+
+[node name="Tile" parent="Rin" unique_id=267361305 instance=ExtResource("1_05kjn")]
+
+[node name="Pointer" type="Node3D" parent="Rin" unique_id=1703484801]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1566909500]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 12.781872, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=875566157]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 22.490662, 0)
+light_energy = 16.0
+
+[node name="RingSpawner" type="Node3D" parent="." unique_id=225458808]
+
+[node name="Ring" type="Node3D" parent="." unique_id=407059150]
+script = ExtResource("3_a1f1x")

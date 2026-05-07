@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cepp0mu7wuf0u"]
+
+[ext_resource type="Script" uid="uid://b2d2s2ndpqids" path="res://Game/Scripts/AudioController/AudioController.gd" id="1_k18v8"]
+[ext_resource type="AudioStream" uid="uid://d1try1otbbt7n" path="res://Game/Assets/Audio/OST-Master.ogg" id="2_ic1i4"]
+[ext_resource type="AudioStream" uid="uid://bdhl8qqya1aba" path="res://Game/Assets/Audio/OST-Menu.ogg" id="3_j4w4q"]
+[ext_resource type="AudioStream" uid="uid://ptq57dbekb5j" path="res://Game/Assets/Audio/Chicken.ogg" id="4_j4w4q"]
+[ext_resource type="AudioStream" uid="uid://becrofc3qkmu0" path="res://Game/Assets/Audio/CoinSound.ogg" id="5_ui1sr"]
+
+[node name="AudioController" type="Node" unique_id=2067432633 node_paths=PackedStringArray("Master", "Menu", "Chicken", "Coin")]
+process_mode = 3
+script = ExtResource("1_k18v8")
+Master = NodePath("OstMaster")
+Menu = NodePath("OstMenu")
+Chicken = NodePath("Chicken")
+Coin = NodePath("Coin")
+
+[node name="OstMaster" type="AudioStreamPlayer" parent="." unique_id=715426188]
+stream = ExtResource("2_ic1i4")
+bus = &"Music"
+playback_type = 1
+parameters/looping = true
+
+[node name="OstMenu" type="AudioStreamPlayer" parent="." unique_id=840807025]
+process_mode = 3
+stream = ExtResource("3_j4w4q")
+bus = &"Music"
+playback_type = 1
+parameters/looping = true
+
+[node name="Chicken" type="AudioStreamPlayer" parent="." unique_id=83706655]
+stream = ExtResource("4_j4w4q")
+volume_db = -12.0
+pitch_scale = 1.25
+bus = &"SFX"
+
+[node name="Coin" type="AudioStreamPlayer" parent="." unique_id=1464642957]
+stream = ExtResource("5_ui1sr")
+bus = &"SFX"

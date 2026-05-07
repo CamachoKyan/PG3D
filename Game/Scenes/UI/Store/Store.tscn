@@ -1,0 +1,257 @@
+[gd_scene format=3 uid="uid://bxu1dcy688f4c"]
+
+[ext_resource type="Script" uid="uid://wl1ntr6nfk7m" path="res://Game/Scripts/Store/Store.gd" id="1_6qqto"]
+[ext_resource type="PackedScene" uid="uid://csthtinp6va2r" path="res://Game/Assets/Player/Skins/Pollo_0.glb" id="2_8hb7c"]
+[ext_resource type="PackedScene" uid="uid://rnppu23mpubq" path="res://Game/Scenes/UI/Store/BuyButton.tscn" id="2_53v1v"]
+[ext_resource type="Texture2D" uid="uid://dolugbd7uwk1c" path="res://Game/Assets/Menu/Menu2Tienda.png" id="2_82pjq"]
+[ext_resource type="PackedScene" uid="uid://cljir5e427nos" path="res://Game/Assets/Player/Skins/Pollo_1.glb" id="3_53jjp"]
+[ext_resource type="FontFile" uid="uid://blpbjyc4ndbsx" path="res://Game/Assets/Font/Nightmare Codehack.otf" id="3_ybphq"]
+[ext_resource type="PackedScene" uid="uid://gwkdyvn1vay1" path="res://Game/Assets/Player/Skins/Pollo_2.glb" id="4_8ykm0"]
+[ext_resource type="PackedScene" uid="uid://cdbxhn1htmysj" path="res://Game/Assets/Player/Skins/Pollo_3.glb" id="5_b3rj7"]
+[ext_resource type="PackedScene" uid="uid://cfjro08pawnup" path="res://Game/Assets/Tiles/Pilar_0.glb" id="6_noi7t"]
+[ext_resource type="PackedScene" uid="uid://b0uccqvpq4t4x" path="res://Game/Assets/Tiles/Pilar_1.glb" id="7_53v1v"]
+[ext_resource type="PackedScene" uid="uid://dr3mqnk6dm2j7" path="res://Game/Assets/Tiles/Pilar_2.glb" id="8_82pjq"]
+[ext_resource type="PackedScene" uid="uid://csfpgmnc32bkt" path="res://Game/Assets/Tiles/Pilar_3.glb" id="9_ybphq"]
+
+[node name="Store" type="CanvasLayer" unique_id=514885252 node_paths=PackedStringArray("Coins")]
+script = ExtResource("1_6qqto")
+Coins = NodePath("Control/RichTextLabel2")
+
+[node name="Control" type="Control" parent="." unique_id=1195749585]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="TextureRect" parent="Control" unique_id=2098765816]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_82pjq")
+expand_mode = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=2062919137]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -325.5
+offset_right = 325.5
+offset_bottom = 72.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0.94509804, 0.827451, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_ybphq")
+theme_override_font_sizes/normal_font_size = 48
+text = "Tienda"
+horizontal_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control" unique_id=1432619615]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 23.0
+offset_top = -1.0
+offset_right = 674.0
+offset_bottom = 71.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0.94509804, 0.827451, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_ybphq")
+theme_override_font_sizes/normal_font_size = 48
+text = "Monedas: "
+horizontal_alignment = 1
+
+[node name="Exit" type="Button" parent="Control" unique_id=1225441629]
+layout_mode = 0
+offset_right = 154.0
+offset_bottom = 79.0
+theme_override_fonts/font = ExtResource("3_ybphq")
+theme_override_font_sizes/font_size = 48
+text = "Salir"
+
+[node name="Label" type="Label" parent="Control" unique_id=511898044]
+layout_mode = 0
+offset_top = 100.0
+offset_right = 1152.0
+offset_bottom = 167.00006
+theme_override_colors/font_color = Color(0.94509804, 0.827451, 0, 1)
+theme_override_fonts/font = ExtResource("3_ybphq")
+theme_override_font_sizes/font_size = 48
+text = "Skins"
+horizontal_alignment = 1
+
+[node name="Skins" type="HBoxContainer" parent="Control" unique_id=1081266783]
+layout_mode = 0
+offset_top = 100.0
+offset_right = 1152.0
+offset_bottom = 369.0
+alignment = 1
+
+[node name="Pollo_0" type="SubViewportContainer" parent="Control/Skins" unique_id=784258933]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="Control/Skins/Pollo_0" unique_id=1930579406]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(265, 269)
+render_target_update_mode = 4
+
+[node name="Camera3D2" type="Camera3D" parent="Control/Skins/Pollo_0/SubViewport" unique_id=1885413868]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.40909064, 6.9709167, -16.431812)
+
+[node name="BuyButton" parent="Control/Skins/Pollo_0/SubViewport" unique_id=1892856924 instance=ExtResource("2_53v1v")]
+
+[node name="Pollo_1" type="SubViewportContainer" parent="Control/Skins" unique_id=488137109]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="Control/Skins/Pollo_1" unique_id=1337319787]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(265, 269)
+render_target_update_mode = 4
+
+[node name="Camera3D2" type="Camera3D" parent="Control/Skins/Pollo_1/SubViewport" unique_id=457948849]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -63.591, 6.971, -16.432)
+
+[node name="BuyButton" parent="Control/Skins/Pollo_1/SubViewport" unique_id=407715180 instance=ExtResource("2_53v1v")]
+
+[node name="Pollo_2" type="SubViewportContainer" parent="Control/Skins" unique_id=246552328]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="Control/Skins/Pollo_2" unique_id=927381827]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(265, 269)
+render_target_update_mode = 4
+
+[node name="Camera3D2" type="Camera3D" parent="Control/Skins/Pollo_2/SubViewport" unique_id=1357790274]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -127.591, 6.971, -16.432)
+
+[node name="BuyButton" parent="Control/Skins/Pollo_2/SubViewport" unique_id=1385294488 instance=ExtResource("2_53v1v")]
+
+[node name="Pollo_3" type="SubViewportContainer" parent="Control/Skins" unique_id=1493213161]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="Control/Skins/Pollo_3" unique_id=1599852497]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(265, 269)
+render_target_update_mode = 4
+
+[node name="Camera3D2" type="Camera3D" parent="Control/Skins/Pollo_3/SubViewport" unique_id=1950935454]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -191.591, 6.971, -16.432)
+
+[node name="BuyButton" parent="Control/Skins/Pollo_3/SubViewport" unique_id=1315952257 instance=ExtResource("2_53v1v")]
+
+[node name="Label2" type="Label" parent="Control" unique_id=1098296183]
+layout_mode = 0
+offset_top = 350.0
+offset_right = 1152.0
+offset_bottom = 417.0
+theme_override_colors/font_color = Color(0.94509804, 0.827451, 0, 1)
+theme_override_fonts/font = ExtResource("3_ybphq")
+theme_override_font_sizes/font_size = 48
+text = "Plataformas"
+horizontal_alignment = 1
+
+[node name="Tiles" type="HBoxContainer" parent="Control" unique_id=1990063881]
+layout_mode = 0
+offset_top = 341.0
+offset_right = 1152.0
+offset_bottom = 610.0
+alignment = 1
+
+[node name="Pilar_0" type="SubViewportContainer" parent="Control/Tiles" unique_id=554422510]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="Control/Tiles/Pilar_0" unique_id=682449764]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(265, 269)
+render_target_update_mode = 4
+
+[node name="Camera3D2" type="Camera3D" parent="Control/Tiles/Pilar_0/SubViewport" unique_id=1055118964]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.40909064, 38.971, -16.431812)
+
+[node name="BuyButton" parent="Control/Tiles/Pilar_0/SubViewport" unique_id=1497949390 instance=ExtResource("2_53v1v")]
+
+[node name="Pilar_1" type="SubViewportContainer" parent="Control/Tiles" unique_id=831054039]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="Control/Tiles/Pilar_1" unique_id=403952937]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(265, 269)
+render_target_update_mode = 4
+
+[node name="Camera3D2" type="Camera3D" parent="Control/Tiles/Pilar_1/SubViewport" unique_id=1559683761]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -63.591, 38.971, -16.432)
+
+[node name="BuyButton" parent="Control/Tiles/Pilar_1/SubViewport" unique_id=702618606 instance=ExtResource("2_53v1v")]
+
+[node name="Pilar_2" type="SubViewportContainer" parent="Control/Tiles" unique_id=1767620563]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="Control/Tiles/Pilar_2" unique_id=1375835088]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(265, 269)
+render_target_update_mode = 4
+
+[node name="Camera3D2" type="Camera3D" parent="Control/Tiles/Pilar_2/SubViewport" unique_id=1908658945]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -127.591, 38.971, -16.432)
+
+[node name="BuyButton" parent="Control/Tiles/Pilar_2/SubViewport" unique_id=1768354682 instance=ExtResource("2_53v1v")]
+
+[node name="Pilar_3" type="SubViewportContainer" parent="Control/Tiles" unique_id=1785858028]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="Control/Tiles/Pilar_3" unique_id=1008486582]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(265, 269)
+render_target_update_mode = 4
+
+[node name="Camera3D2" type="Camera3D" parent="Control/Tiles/Pilar_3/SubViewport" unique_id=658414606]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -191.591, 38.971, -16.432)
+
+[node name="BuyButton" parent="Control/Tiles/Pilar_3/SubViewport" unique_id=1491470879 instance=ExtResource("2_53v1v")]
+
+[node name="Skins" type="Node" parent="." unique_id=1531716517]
+
+[node name="Pollo-V2" parent="Skins" unique_id=1257272198 instance=ExtResource("2_8hb7c")]
+transform = Transform3D(-0.85140663, 0, 0.5245062, 0, 1, 0, -0.5245062, 0, -0.85140663, 0, 0, 0)
+
+[node name="Pollo-V2_Skin01" parent="Skins" unique_id=988486885 instance=ExtResource("3_53jjp")]
+transform = Transform3D(-0.8517269, 0, 0.5239859, 0, 1, 0, -0.5239859, 0, -0.8517269, -64, 0, 0)
+
+[node name="Pollo-V2_Skin02" parent="Skins" unique_id=1856093905 instance=ExtResource("4_8ykm0")]
+transform = Transform3D(-0.8517269, 0, 0.5239859, 0, 1, 0, -0.5239859, 0, -0.8517269, -128, 0, 0)
+
+[node name="Pollo-V2_Skin03" parent="Skins" unique_id=1553720635 instance=ExtResource("5_b3rj7")]
+transform = Transform3D(-0.8517269, 0, 0.5239859, 0, 1, 0, -0.5239859, 0, -0.8517269, -192, 0, 0)
+
+[node name="Tiles" type="Node" parent="." unique_id=1857244872]
+
+[node name="Pilar-V2" parent="Tiles" unique_id=1854021889 instance=ExtResource("6_noi7t")]
+transform = Transform3D(-0.10452851, 0, -0.9945219, 0, 1, 0, 0.9945219, 0, -0.10452851, 0, 32, 0)
+
+[node name="Pilar-V2_Skin01" parent="Tiles" unique_id=2128867945 instance=ExtResource("7_53v1v")]
+transform = Transform3D(-0.10452851, 0, -0.9945219, 0, 1, 0, 0.9945219, 0, -0.10452851, -64, 32, 0)
+
+[node name="Pilar-V2_Skin02" parent="Tiles" unique_id=1617038094 instance=ExtResource("8_82pjq")]
+transform = Transform3D(-0.10452851, 0, -0.9945219, 0, 1, 0, 0.9945219, 0, -0.10452851, -128, 32, 0)
+
+[node name="Pilar-V2_Skin03" parent="Tiles" unique_id=72836084 instance=ExtResource("9_ybphq")]
+transform = Transform3D(-0.10452851, 0, -0.9945219, 0, 1, 0, 0.9945219, 0, -0.10452851, -192, 32, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=503251588]
+transform = Transform3D(0.9989777, 0.018615244, 0.04119537, 4.1610648e-10, -0.9112811, 0.41178486, 0.04520604, -0.41136387, -0.9103495, 0, 7.5162086, -30.528116)
+light_energy = 2.25
+
+[connection signal="pressed" from="Control/Exit" to="." method="Exit"]

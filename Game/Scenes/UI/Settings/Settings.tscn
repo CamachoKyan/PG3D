@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://3e6xcynebm22"]
+
+[ext_resource type="Script" uid="uid://bch4udn8wgcgx" path="res://Game/Scripts/Settings/Settings.gd" id="1_11p1a"]
+[ext_resource type="Texture2D" uid="uid://dfgugnuluy8i0" path="res://Game/Assets/Menu/Menu2Tienda.svg" id="2_kh733"]
+[ext_resource type="PackedScene" uid="uid://b2kws08oxgyjx" path="res://Game/Scenes/UI/Settings/VolumeSetting.tscn" id="2_s0rnh"]
+[ext_resource type="FontFile" uid="uid://blpbjyc4ndbsx" path="res://Game/Assets/Font/Nightmare Codehack.otf" id="3_4hss7"]
+
+[node name="Settings" type="Control" unique_id=2098579748]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_11p1a")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1958968326]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kh733")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1587736089]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1054348076]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=87062553]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_4hss7")
+theme_override_font_sizes/font_size = 48
+text = "Chicken Jump"
+horizontal_alignment = 1
+
+[node name="Audio" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1815371930]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_4hss7")
+theme_override_font_sizes/font_size = 48
+text = "Audio"
+
+[node name="HSlider" parent="MarginContainer/VBoxContainer" unique_id=2073610156 instance=ExtResource("2_s0rnh")]
+layout_mode = 2
+bus_name = "Master"
+
+[node name="Music" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1896097711]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_4hss7")
+theme_override_font_sizes/font_size = 48
+text = "Música"
+
+[node name="Volume2" parent="MarginContainer/VBoxContainer" unique_id=557848460 instance=ExtResource("2_s0rnh")]
+layout_mode = 2
+bus_name = "Music"
+
+[node name="SFX" type="Label" parent="MarginContainer/VBoxContainer" unique_id=734593184]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_4hss7")
+theme_override_font_sizes/font_size = 48
+text = "SFX"
+
+[node name="Volume" parent="MarginContainer/VBoxContainer" unique_id=880235816 instance=ExtResource("2_s0rnh")]
+layout_mode = 2
+bus_name = "SFX"
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1758985005]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_4hss7")
+theme_override_font_sizes/font_size = 48
+text = "Salir"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="Back"]
